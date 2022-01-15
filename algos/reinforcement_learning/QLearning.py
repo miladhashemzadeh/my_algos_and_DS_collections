@@ -48,13 +48,13 @@ class Q:
 
 
 if __name__ == "__main__":
-    qleraning = Q(alpha=0.1, epsilon=0.4, gamma=0.6)
+    qleraning = Q(alpha=0.1, epsilon=0.1, gamma=0.6, elevator=Elevator(floor_size=10, current_position=5))
     counter = 0
-    for _ in range(0, 10):
+    for _ in range(0, 1000):
         qleraning.solve()
         counter += qleraning.step
         qleraning.smart_reset()
     qleraning.solve()
-    print(" \n after train steps:%d".format(qleraning.step))
+    print(" \n after train steps:{}".format(qleraning.step))
     qleraning.smart_reset()
-    print(" \n Total steps:%d".format(counter / 10))
+    print(" \n Total steps:{}".format(counter / 100))
